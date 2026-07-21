@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../../.flowbite-react/class-list.json";
+
+
+
+@theme {
+  --animate-slide: slide linear infinite;
+
+  @keyframes slide {
+    0% { transform: translateX(0) }
+    100% { transform: translateX(-50%) }
+  }
+}
+
+.animate-slide:hover {
+  animation-play-state: paused;
+}
