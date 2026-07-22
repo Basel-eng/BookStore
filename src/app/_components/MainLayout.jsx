@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import {
   Navbar,
@@ -15,22 +16,34 @@ import {
 export function DefaultHeader() {
   return (
     <Navbar>
-      <NavbarBrand as={Link} href="https://flowbite-react.com">
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          Book Store
-        </span>
-      </NavbarBrand>
+      <Link href="/" passHref legacyBehavior>
+        <NavbarBrand>
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            Book Store
+          </span>
+        </NavbarBrand>
+      </Link>
+
       <NavbarToggle />
+
       <NavbarCollapse>
-        <NavbarLink href="/" active>
+        <NavbarLink as={Link} href="/">
           Home
         </NavbarLink>
-        <NavbarLink as={Link} href="/about">
-          About
-        </NavbarLink>
-        <NavbarLink href="/services">Services</NavbarLink>
-        <NavbarLink href="/contact">Contact</NavbarLink>
+
+        <Link href="/about" passHref legacyBehavior>
+          <NavbarLink>About</NavbarLink>
+        </Link>
+
+        <Link href="/services" passHref legacyBehavior>
+          <NavbarLink>Services</NavbarLink>
+        </Link>
+
+        <Link href="/contact" passHref legacyBehavior>
+          <NavbarLink>Contact</NavbarLink>
+        </Link>
       </NavbarCollapse>
+
       <DarkThemeToggle />
     </Navbar>
   );
@@ -39,7 +52,7 @@ export function DefaultHeader() {
 export function DefaultFooter() {
   return (
     <Footer container className="rounded-none">
-      <FooterCopyright href="#" by="BookStore™" year={2024} />
+      <FooterCopyright href="#" by="BookStore™" year={2026} />
       <FooterLinkGroup>
         <FooterLink href="#">About</FooterLink>
         <FooterLink href="#">Privacy Policy</FooterLink>
